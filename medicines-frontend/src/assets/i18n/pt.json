@@ -1,0 +1,136 @@
+{
+    "app-title": "Medicamentos",
+    "medicines-table": "Tabela de Medicamentos",
+    "full-text-search": "Pesquisa ...",
+    "navbar": {
+        "medicines": "Medicamentos",
+        "stock": "Stock",
+        "medication": "Medicação",
+        "settings": "Definições"
+    },
+    "medicine": {
+        "select": "Selecionar",
+        "barcode": "Código de Barras",
+        "name": "Nome",
+        "dosage": "Dosagem",
+        "generic": "Genérico",
+        "international-common-name": "Nome Internacional",
+        "form": "Forma",
+        "packaging-size": "Tamanho da Embalagem",
+        "notification": {
+            "title": "Medicamentos",
+            "medicine-not-found": "Medicamento não encontrado"
+        }
+    },
+    "medication": {
+        "add-modal": {
+            "title": "Adicionar Medicamento a",
+            "choose-medication": "Escolher Medicamento",
+            "observations": "Observações",
+            "temporary": "Medicação Temporária",
+            "days": "Dias",
+            "start_date": "Data de Início",
+            "save-button": "Guardar",
+            "close-button": "Fechar"
+        },
+        "image-modal": {
+            "title": "Imagem do Medicamento",
+            "delete-button": "Eliminar",
+            "close-button": "Fechar"
+        },
+        "observations": "Observações",
+        "table-title": "Tabela de Medicação",
+        "download-pdf": "Transferir PDF",
+        "add-medicine-tooltip": "Adicionar Medicamento",
+        "delete-medicine-tooltip": "Eliminar Medicamento",
+        "edit-medicine-obs-tooltip": "Editar Observações do Medicamento",
+        "add-medicine-obs-tooltip": "Adicionar Observações ao Medicamento",
+        "image": "Imagem",
+        "add-image": "Adicionar Imagem",
+        "add-medicine-obs-btn": "Observações",
+        "images": "Imagens",
+        "info": "Info",
+        "temporary-days": "Dias",
+        "temporary-start-date": "Data de Início",
+        "temporary-medication": "Medicação Temporária",
+        "regular-medication": "Medicação Habitual",
+        "notification": {
+            "title": "Medicação",
+            "medicine-added": "Medicamento adicionado",
+            "medicine-added-error": "Erro ao adicionar o medicamento",
+            "medicine-updated": "Medicamento atualizado",
+            "medicine-updated-error": "Erro ao atualizar o medicamento",
+            "medicine-deleted": "Medicamento removido",
+            "medicine-deleted-error": "Erro ao remover o medicamento",
+            "image-uploaded": "Imagem do medicamento guardada",
+            "image-uploaded-error": "Erro ao guardar a imagem do medicamento",
+            "image-deleted": "Imagem do medicamento eliminada",
+            "image-deleted-error": "Erro ao eliminar a imagem do medicamento",
+            "day-period-added": "Periodo do Dia Adicionado",
+            "day-period-error": "Erro ao adicionar periodo do dia",
+            "day-period-deleted": "Periodo do Dia removido",
+            "day-period-deleted-error": "Erro ao remover o perido do dia"
+        },
+        "settings": {
+            "title": "Períodos do Dia da Medicação",
+            "add-day-period-btn": "Adicionar Período do Dia",
+            "delete-day-period-btn": "Eliminar",
+            "add-day-period-modal": {
+                "title": "Adicionar Novo Período do Dia",
+                "save-btn": "Guardar",
+                "close-btn": "Fechar",
+                "day-period": "Período do Dia",
+                "day-period-hour": "Hora"
+            }
+        }
+    },
+    "stock": {
+        "title": "Stock",
+        "add-medicine": "Adicionar Medicamento ao Stock",
+        "filter": "Filtro",
+        "in-validity": "Com Validade",
+        "less-than-1-month": "Menos de 1 mês de Validade",
+        "without-validity": "Sem Validade",
+        "validity-end-date": "Data de Validade",
+        "delete-medicine-tooltip": "Eliminar Medicamento",
+        "all": "Todos",
+        "add-modal": {
+            "title": "Adicionar Medicamento ao Stock",
+            "save-btn": "Guardar",
+            "close-btn": "Fechar"
+        },
+        "notification": {
+            "title": "Stock",
+            "not-found": "Não Encontrado",
+            "medicine-added-success": "Medicamento adicionado ao Stock",
+            "medicine-added-error": "Erro ao adicionar o medicamento ao Stock",
+            "medicine-deleted-success": "Medicamento Removido",
+            "medicine-deleted-error": "Erro ao remover o medicamento do Stock"
+        }
+    },
+    "person": {
+        "settings": {
+            "title": "Pessoas",
+            "add-person-btn": "Adicionar Pessoa",
+            "delete-person-btn": "Eliminar",
+            "add-modal": {
+                "title": "Adicionar nova Pessoa",
+                "save-btn": "Guardar",
+                "close-btn": "Fechar",
+                "person-name": "Nome da Pessoa"
+            },
+            "notification": {
+                "title": "Pessoa",
+                "persons-added": "Pessoa Adicionada",
+                "persons-added-error": "Erro ao adicionar a pessoa",
+                "persons-deleted": "Pessoa Eliminada",
+                "persons-deleted-error": "Erro ao eliminar a pessoa"
+            }
+        }
+    },
+    "BEFORE BREAKFAST": "JEJUM",
+    "BREAKFAST": "PEQUENO ALMOÇO",
+    "LUNCH": "ALMOÇO",
+    "DINNER": "JANTAR",
+    "NIGHT": "NOITE"
+}

@@ -1,0 +1,62 @@
+<c-col xs="12">
+    <c-card class="mb-4">
+        <c-card-header>
+            <strong>{{ 'stock.title' | translate }}</strong>
+            <button cButton size="sm" variant="outline" style="float: right" (click)="openAddMedicineToStockModal()">
+                {{'stock.add-medicine' | translate}}
+            </button>
+        </c-card-header>
+        <c-card-body>
+            <form>
+                <div class="mb-3 row" style="float:right;">
+                    <div class="col-xs-3 col-sm-auto">
+                        <input id="table-filtering-search" class="form-control" type="text" [formControl]="search" placeholder="{{'full-text-search' | translate}}"/>
+                    </div>
+                </div>
+
+                <div class="mb-3 row" style="float:left;">
+                    <label class="col-xs-3 col-sm-auto col-form-label">{{ 'stock.filter' | translate }}:</label>
+                    <div class="col-xs-3 col-sm-auto">
+                        <select class="form-control" [formControl]="filter" (change)="changeFilter()">
+                            <option value="all">{{ 'stock.all' | translate }}</option>
+                            <option value="{{ ValidityStatusEnum.IN_VALIDITY }}">{{ 'stock.in-validity' | translate }}</option>
+                            <option value="{{ ValidityStatusEnum.LESS_THAN_1_MONTH }}">{{ 'stock.less-than-1-month' | translate }}</option>
+                            <option value="{{ ValidityStatusEnum.WITHOUT_VALIDITY }}">{{ 'stock.without-validity' | translate }}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <br><br><br>
+            <c-row>
+                <c-col [lg]="3" *ngFor="let stock of (this.stockService.stocks$ | async)?.content">
+                    <c-card class="mb-3">
+                        <c-card-header class="bg-{{getCardColor(stock)}}">
+                            <b>{{stock.medicine.name}}</b>
+                            <button cButton size="sm" color="danger" variant="ghost" style="float:right;" (click)="this.stockService.deleteStockEntry(stock.id)" ngbTooltip="{{'stock.delete-medicine-tooltip' | translate}}">
+                                <svg cIcon name="cil-trash"></svg>
+                            </button>
+                        </c-card-header>
+                        <c-card-body class="bg">
+                            <p cCardText> <b>{{ 'medicine.dosage' | translate }}:</b> {{stock.medicine.dosage}}</p>
+                            <p cCardText [ngbTooltip]="stock.medicine.packagingSize"> <b>{{ 'medicine.packaging-size' | translate }}:</b> {{stock.medicine.packagingSize}}</p>
+                            <p cCardText> <b>{{ 'medicine.generic' | translate }}:</b> {{stock.medicine.generic}}</p>
+                            <p cCardText [ngbTooltip]="stock.medicine.form"> <b>{{ 'medicine.form' | translate }}:</b> {{stock.medicine.form}}</p>
+                        </c-card-body>
+                        <c-card-footer>
+                            <p cCardText> <b>{{ 'stock.validity-end-date' | translate }}:</b> {{ stock.validityEndDate | date:"dd MMM yyyy " }} </p>
+                        </c-card-footer>
+                    </c-card>
+                </c-col>
+            </c-row>
+
+            <ngb-pagination
+                [collectionSize]="this.collectionSize"
+                [pageSize]="this.pageSize"
+                [(page)]="this.pageNumber"
+                [maxSize]="5"
+                (pageChange)="this.changePage($event)"
+                style="float: right"
+            ></ngb-pagination>
+        </c-card-body>
+    </c-card>
+</c-col>

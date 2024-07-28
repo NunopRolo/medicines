@@ -1,0 +1,55 @@
+services:
+    backend:
+        image: medicines-backend
+        container_name: medicines-backend
+        build:
+            context: ./medicines
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+        environment:
+            - DATASOURCE_URL=jdbc:postgresql://db/medicines
+            - DATASOURCE_USERNAME=medicines
+            - DATASOURCE_PWD=medicines
+            - WEBCLIENT_URL=
+            - HASS_TOKEN=
+        networks:
+            - medicines
+        restart: always
+
+    frontend:
+        image: medicines-frontend
+        container_name: medicines-frontend
+        build:
+            context: ./medicines-frontend
+            args:
+                ENVIRONMENT: dev
+        ports:
+            - "80:80"
+        depends_on:
+            - backend
+        networks:
+            - medicines
+        restart: always
+
+    db:
+        image: 'postgres'
+        container_name: db
+        environment:
+            - POSTGRES_USER=medicines
+            - POSTGRES_PASSWORD=medicines
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./volumes/db:/var/lib/postgresql/data
+        healthcheck:
+            test: [ "CMD-SHELL", "pg_isready -U medicines" ]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+        networks:
+            - medicines
+
+networks:
+    medicines:

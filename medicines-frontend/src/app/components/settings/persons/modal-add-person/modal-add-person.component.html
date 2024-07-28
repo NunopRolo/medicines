@@ -1,0 +1,18 @@
+<c-modal-header>
+    <b>{{ 'person.settings.add-modal.title' | translate}}</b>
+    <button (click)="this.activeModal.close()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+    <div class="mb-3">
+        <label cLabel for="name"> <b>{{ 'person.settings.add-modal.person-name' | translate }}:</b></label>
+        <input cFormControl id="name" type="text" [formControl]="personName">
+    </div>
+</c-modal-body>
+<c-modal-footer>
+    <button (click)="this.activeModal.close()" cButton color="secondary">
+        {{ 'person.settings.add-modal.close-btn' | translate }}
+    </button>
+    <button cButton color="primary" (click)="this.savePerson()">
+        {{ 'person.settings.add-modal.save-btn' | translate }}
+    </button>
+</c-modal-footer>

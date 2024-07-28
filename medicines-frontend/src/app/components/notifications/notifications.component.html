@@ -1,0 +1,14 @@
+<c-toaster placement="top-end" class="p-3" position="fixed">
+    <c-toast
+        (visibleChange)="notificationService.onVisibleChange($event)"
+        [visible]="notificationService.visible"
+        [color]="notificationService.color"
+    >
+        <c-toast-header>
+            <strong>{{ notificationService.title }}</strong>
+        </c-toast-header>
+        <c-toast-body>
+            <p>{{ notificationService.body }}</p>
+        </c-toast-body>
+    </c-toast>
+</c-toaster>

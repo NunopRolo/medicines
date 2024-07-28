@@ -1,0 +1,55 @@
+table{
+    border-collapse: collapse;
+}
+
+table td, table th{
+    border: 1px solid black;
+}
+
+table thead tr th{
+    text-align: center;
+}
+
+.card {
+    border: 1px #9DA5B1 solid;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.header {
+    height: 30%;
+    background: #9DA5B1;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.card {
+    border: 1px solid #9DA5B1;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.card-header {
+    border-bottom: 1px solid #9DA5B1;
+    background: #9DA5B1;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.card-footer {
+    border-top: 1px solid hsl(0, 0%, 80%);
+}
+
+.card-body{
+    padding: 2px 14px;
+}

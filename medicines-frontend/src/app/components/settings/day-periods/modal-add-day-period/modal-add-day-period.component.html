@@ -1,0 +1,23 @@
+<c-modal-header>
+    <b>{{ 'medication.settings.add-day-period-modal.title' | translate}}</b>
+    <button (click)="this.activeModal.close()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+    <div class="mb-3">
+        <label cLabel for="name"> <b>{{ 'medication.settings.add-day-period-modal.day-period' | translate }}:</b></label>
+        <input cFormControl id="name" type="text" [formControl]="dayPeriodName">
+    </div>
+
+    <div class="mb-3">
+        <label cLabel for="hour"> <b>{{ 'medication.settings.add-day-period-modal.day-period' | translate }}:</b></label>
+        <input cFormControl id="hour" type="time" [formControl]="dayPeriodHour">
+    </div>
+</c-modal-body>
+<c-modal-footer>
+    <button (click)="this.activeModal.close()" cButton color="secondary">
+        {{ 'medication.settings.add-day-period-modal.close-btn' | translate }}
+    </button>
+    <button cButton color="primary" (click)="this.savePerson()">
+        {{ 'medication.settings.add-day-period-modal.save-btn' | translate }}
+    </button>
+</c-modal-footer>

@@ -1,0 +1,22 @@
+<c-col xs="12">
+    <c-card class="mb-4">
+        <c-card-header>
+            <strong>{{ 'medication.settings.title' | translate}}</strong>
+            <button cButton size="sm" variant="outline" style="float: right" (click)="addDayPeriod()">
+                {{ 'medication.settings.add-day-period-btn' | translate}}
+            </button>
+        </c-card-header>
+        <c-card-body>
+            <c-row>
+                <c-col [sm]="3" *ngFor="let dayPeriod of (this.medicationService.dayPeriods$ | async)">
+                    <c-card class="mb-4" color="light">
+                        <c-card-body>
+                            <h2>{{dayPeriod.description | translate}}</h2>
+                            <button cButton color="danger" (click)="this.medicationService.deleteDayPeriod(dayPeriod)">{{ 'medication.settings.delete-day-period-btn' | translate}}</button>
+                        </c-card-body>
+                    </c-card>
+                </c-col>
+            </c-row>
+        </c-card-body>
+    </c-card>
+</c-col>

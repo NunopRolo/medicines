@@ -1,0 +1,72 @@
+<div>
+    <div class="card" [style.background-color]="background_color" >
+        <h3 class="card__title">{{ medication.medicine.name }}</h3>
+        <div class="card__content">
+            <ul *ngIf="!imageVisibility">
+                <li>
+                    {{medication.medicine.dosage}}
+                </li>
+                <li>
+                    {{medication.medicine.packagingSize}}<br>
+                </li>
+                <li>
+                    {{medication.medicine.form}}
+                </li>
+            </ul>
+            <p *ngIf="!imageVisibility && temporaryMedication"> <b>{{'medication.temporary-days' | translate}}:</b> {{temporaryMedication.days}}</p>
+            <p *ngIf="!imageVisibility && temporaryMedication"> <b>{{'medication.temporary-start-date' | translate}}:</b> {{temporaryMedication.startDate | date: "dd-MM-yyyy"}}</p>
+            <div>
+                <img *ngIf="imageVisibility && this.medication.medicine.image" src="data:image/jpg;base64,{{medication.medicine.image}}" alt="Medicine Image" (click)="this.openImageModal(medication)">
+
+                <div *ngIf="imageVisibility && !this.medication.medicine.image" style="cursor: pointer; text-align: center" (click)="uploader.click()">
+                    <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2rem;"></i>
+                    <p>{{'medication.add-image' | translate}}</p>
+                </div>
+
+                <input
+                    hidden
+                    type="file"
+                    #uploader
+                    (change)="uploadFile($event)"
+                />
+
+            </div>
+
+        </div>
+        <div class="card__date">
+            <div *ngIf="!isEditing">
+                {{ medication.observations }}
+
+                <i
+                    class="fa-solid fa-pencil"
+                    *ngIf="medication.observations"
+                    (click)="this.toggleInput()"
+                    ngbTooltip="{{ 'medication.edit-medicine-obs-tooltip' | translate }}"
+                    style="cursor:pointer;color:#007bff">
+                </i>
+
+                <button cButton size="sm" variant="outline" *ngIf="!medication.observations" (click)="this.toggleInput()" ngbTooltip="{{ 'medication.add-medicine-obs-tooltip' | translate}}">
+                    {{ 'medication.add-medicine-obs-btn' | translate}}
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <c-input-group class="mb-3" *ngIf="isEditing">
+                <input id="observations" class="form-control" type="text" [(ngModel)]="medication.observations"/>
+                <button cButton color="success" id="button-addon1" type="button" variant="outline" (click)="this.saveObservations(medication)">
+                    <i class="fa-solid fa-save"></i>
+                </button>
+
+                <button cButton color="danger" id="button-addon2" type="button" variant="outline" (click)="this.toggleInput()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </c-input-group>
+        </div>
+        <div class="card__arrow" (click)="toggleImage()">
+            <i class="fa-solid {{getIconForBottomRightButton()}}"></i>
+        </div>
+        <div class="card__delete" ngbTooltip="{{ 'medication.delete-medicine-tooltip' | translate}}" (click)="this.deleteMedication(medication)">
+            <i class="fa-solid fa-trash"></i>
+        </div>
+    </div>
+</div>

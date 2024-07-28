@@ -1,0 +1,70 @@
+<barcode-scanner-livestream
+    [type]="['code_128', 'code_39', 'ean_8']"
+    [torch]="false"
+    (valueChanges)="barcodeReader($event)"
+></barcode-scanner-livestream>
+
+<form>
+    <div class="mb-3 row" style="float:right;">
+        <c-input-group class="mb-3">
+            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" placeholder="{{ 'full-text-search' | translate}}"/>
+            <button cButton color="secondary" id="button-addon1" type="button" variant="outline" (click)="this.barcodeScanner.start()">
+                <svg cIcon name="cil-barcode"></svg>
+            </button>
+        </c-input-group>
+    </div>
+</form>
+<div class="scrollable_table">
+    <table bordered cTable class="table">
+        <thead>
+        <tr>
+            <th *ngIf="medicinesSelectionEnabled">{{ 'medicine.select' | translate }}</th>
+            <th>{{ 'medicine.barcode' | translate }}</th>
+            <th>{{ 'medicine.name' | translate }}</th>
+            <th>{{ 'medicine.dosage' | translate }}</th>
+            <th>{{ 'medicine.generic' | translate }}</th>
+            <th>{{ 'medicine.international-common-name' | translate }}</th>
+            <th>{{ 'medicine.form' | translate }}</th>
+            <th>{{ 'medicine.packaging-size' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medicine of (this.medicineService.medicines$ | async)?.content">
+            <td *ngIf="medicinesSelectionEnabled" style="text-align: center;">
+                <c-form-check>
+                    <input cFormCheckInput type="radio" [value]="medicine.barcode" name="medicine" (change)="onChangeMedicineSelection.emit($event)"/>
+                </c-form-check>
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.barcode" [term]="filter.value" />
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.name" [term]="filter.value" />
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.dosage" [term]="filter.value" />
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.generic" [term]="filter.value" />
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.internationalCommonName" [term]="filter.value" />
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.form" [term]="filter.value" />
+            </td>
+            <td>
+                <ngb-highlight [result]="medicine.packagingSize" [term]="filter.value" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ngb-pagination
+    [collectionSize]="this.collectionSize"
+    [pageSize]="this.pageSize"
+    [(page)]="this.pageNumber"
+    [maxSize]="3"
+    (pageChange)="this.changePage($event)"
+    style="float: right"
+></ngb-pagination>

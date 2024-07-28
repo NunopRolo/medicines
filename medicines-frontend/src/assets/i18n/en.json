@@ -1,0 +1,136 @@
+{
+    "app-title": "Medicines",
+    "medicines-table": "Medicines Table",
+    "full-text-search": "Full Text Search ...",
+    "navbar": {
+        "medicines": "Medicines",
+        "stock": "Stock",
+        "regular-medication": "Medication",
+        "settings": "Settings"
+    },
+    "medicine": {
+        "select": "Select",
+        "barcode": "Barcode",
+        "name": "Name",
+        "dosage": "Dosage",
+        "generic": "Generic",
+        "international-common-name": "International Common Name",
+        "form": "Form",
+        "packaging-size": "Packaging Size",
+        "notification": {
+            "title": "Medicine",
+            "medicine-not-found": "Medicine Not Found"
+        }
+    },
+    "medication": {
+        "add-modal": {
+            "title": "Add Medicine To ",
+            "choose-medication": "Choose Medication",
+            "observations": "Observations",
+            "temporary": "Temporary Medication",
+            "days": "Days",
+            "start_date": "Start Date",
+            "save-button": "Save",
+            "close-button": "Close"
+        },
+        "image-modal": {
+            "title": "Medicine Image",
+            "delete-button": "Delete",
+            "close-button": "Close"
+        },
+        "observations": "Observations",
+        "table-title": "Medication Table",
+        "download-pdf": "Download PDF",
+        "add-medicine-tooltip": "Add Medicine",
+        "delete-medicine-tooltip": "Delete Medicine",
+        "edit-medicine-obs-tooltip": "Edit Medicine Observations",
+        "add-medicine-obs-tooltip": "Add Medicine Observations",
+        "image": "Image",
+        "add-image": "Add Medicine Image",
+        "add-medicine-obs-btn": "Observations",
+        "images": "Images",
+        "info": "Info",
+        "temporary-days": "Days",
+        "temporary-start-date": "Start Date",
+        "temporary-medication": "Temporary Medication",
+        "regular-medication": "Regular Medication",
+        "notification": {
+            "title": "Medication",
+            "medicine-added": "Medicine Added",
+            "medicine-added-error": "Error adding medicine",
+            "medicine-updated": "Medicine Updated",
+            "medicine-updated-error": "Error updating medicine",
+            "medicine-deleted": "Medicine removed",
+            "medicine-deleted-error": "Error removing medicine",
+            "image-uploaded": "Image uploaded",
+            "image-uploaded-error": "Error uploading image",
+            "image-deleted": "Medicine image deleted",
+            "image-deleted-error": "Error deleting medicine image",
+            "day-period-added": "Day Period Added",
+            "day-period-error": "Error adding day period",
+            "day-period-deleted": "Day Period Deleted",
+            "day-period-deleted-error": "Error deleting day period"
+        },
+        "settings": {
+            "title": "Regular Medication Day Periods",
+            "add-day-period-btn": "Add Day Period",
+            "delete-day-period-btn": "Delete",
+            "add-day-period-modal": {
+                "title": "Add new Day Period",
+                "save-btn": "Save",
+                "close-btn": "Close",
+                "day-period": "Day Period",
+                "day-period-hour": "Hour"
+            }
+        }
+    },
+    "stock": {
+        "title": "Stock View",
+        "add-medicine": "Add Medicine To Stock",
+        "filter": "Filter",
+        "in-validity": "In Validity",
+        "less-than-1-month": "Less Than 1 Month Validity",
+        "without-validity": "Without Validity",
+        "validity-end-date": "Validity End Date",
+        "delete-medicine-tooltip": "Delete Medicine",
+        "all": "All",
+        "add-modal": {
+            "title": "Add New Medicine To Stock",
+            "save-btn": "Save",
+            "close-btn": "Close"
+        },
+        "notification": {
+            "title": "Stock",
+            "not-found": "Not Found",
+            "medicine-added-success": "Medicine Added to Stock",
+            "medicine-added-error": "Error adding medicine to stock",
+            "medicine-deleted-success": "Medicine Deleted",
+            "medicine-deleted-error": "Error deleting medicine from stock"
+        }
+    },
+    "person": {
+        "settings": {
+            "title": "Persons",
+            "add-person-btn": "Add Person",
+            "delete-person-btn": "Delete",
+            "add-modal": {
+                "title": "Add new Person",
+                "save-btn": "Save",
+                "close-btn": "Close",
+                "person-name": "Person Name"
+            },
+            "notification": {
+                "title": "Person",
+                "persons-added": "Person Added",
+                "persons-added-error": "Error adding person",
+                "persons-deleted": "Person Deleted",
+                "persons-deleted-error": "Error deleting person"
+            }
+        }
+    },
+    "BEFORE BREAKFAST": "BEFORE BREAKFAST",
+    "BREAKFAST": "BREAKFAST",
+    "LUNCH": "LUNCH",
+    "DINNER": "DINNER",
+    "NIGHT": "NIGHT"
+}

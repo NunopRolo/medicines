@@ -1,0 +1,37 @@
+<c-modal-header>
+    <b>{{ 'medication.add-modal.title' | translate}} {{dayPeriod.description | translate}}</b>
+    <button (click)="this.activeModal.close()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+    <label cLabel> <b>{{ 'medication.add-modal.choose-medication' | translate}}:</b></label>
+    <app-medicines-table [medicinesSelectionEnabled]="true" (onChangeMedicineSelection)="onChangeMedicineSelection($event)"></app-medicines-table>
+    <br><br>
+    <form [formGroup]="medicationForm">
+        <div class="mb-3">
+            <label cLabel for="obs"> <b>{{ 'medication.add-modal.observations' | translate}}:</b></label>
+            <input cFormControl id="obs" type="text" formControlName="observations">
+        </div>
+        <div class="mb-3 col-md-6">
+            <c-form-check>
+                <input cFormCheckInput formControlName="isTemporary" id="temporaryCheckbox" type="checkbox" />
+                <label cFormCheckLabel for="temporaryCheckbox">{{ 'medication.add-modal.temporary' | translate}}?</label>
+            </c-form-check>
+        </div>
+        <div class="row" *ngIf="medicationForm.value.isTemporary">
+            <div class="mb-3 col-md-6">
+                <label cLabel for="days"> <b>{{ 'medication.add-modal.days' | translate}}:</b></label>
+                <input cFormControl id="days" type="number" formControlName="days">
+            </div>
+            <div class="mb-3 col-md-6">
+                <label cLabel for="start_date"> <b>{{ 'medication.add-modal.start_date' | translate}}:</b></label>
+                <input cFormControl id="start_date" type="date" formControlName="start_date">
+            </div>
+        </div>
+    </form>
+</c-modal-body>
+<c-modal-footer>
+    <button (click)="this.activeModal.close()" cButton color="secondary">
+        {{ 'medication.add-modal.close-button' | translate }}
+    </button>
+    <button cButton color="primary" (click)="this.saveMedicine()">{{ 'medication.add-modal.save-button' | translate }}</button>
+</c-modal-footer>

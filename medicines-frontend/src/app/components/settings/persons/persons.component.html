@@ -1,0 +1,25 @@
+<c-col xs="12">
+
+    <c-card class="mb-4">
+        <c-card-header>
+            <strong>{{ 'person.settings.title' | translate}}</strong>
+            <button cButton size="sm" variant="outline" style="float: right" (click)="addPerson()">
+                {{ 'person.settings.add-person-btn' | translate}}
+            </button>
+        </c-card-header>
+        <c-card-body>
+            <c-row>
+                <c-col [sm]="2" *ngFor="let person of (this.personService.persons$ | async)">
+                    <c-card class="mb-4" color="light">
+                        <c-card-body>
+                            <h2>{{person.name}}</h2>
+                            <button cButton color="danger" (click)="this.personService.deletePerson(person)">
+                                {{ 'person.settings.delete-person-btn' | translate}}
+                            </button>
+                        </c-card-body>
+                    </c-card>
+                </c-col>
+            </c-row>
+        </c-card-body>
+    </c-card>
+</c-col>

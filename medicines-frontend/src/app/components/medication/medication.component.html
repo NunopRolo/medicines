@@ -1,0 +1,76 @@
+<meta name="viewport" content="initial-scale=0.3">
+<c-col xs="12">
+    <c-card class="mb-4">
+        <c-card-header>
+            <strong>{{ 'medication.table-title' | translate }}</strong>
+
+            <button id="pdf" cButton size="sm" variant="outline" style="float: right;" (click)="this.downloadPdf()">
+                {{ 'medication.download-pdf' | translate }}
+                <i class="fa-solid fa-file-pdf"></i>
+            </button>
+
+            <button class="btn {{this.medicationService.imageVisibility ? 'btn-primary' : 'btn-outline-primary'}} btn-sm" size="sm" style="float: right; margin-right: 1%;" (click)="this.medicationService.toggleImageVisibility()">
+                {{ 'medication.images' | translate }}
+            </button>
+
+            <button class="btn {{!this.medicationService.imageVisibility ? 'btn-primary' : 'btn-outline-primary'}} btn-sm" size="sm" style="float: right; margin-right: 1%;" (click)="this.medicationService.toggleImageVisibility()">
+                {{ 'medication.info' | translate }}
+            </button>
+
+        </c-card-header>
+        <c-card-body>
+
+            <div class="row">
+                <div style="width: 200px;">
+                    <div class="regular-color-dot"></div>
+                    <div class="color-button">{{"medication.regular-medication" | translate}}</div>
+                </div>
+
+                <div style="width: 200px;">
+                    <div class="temporary-color-dot"></div>
+                    <div class="color-button">{{"medication.temporary-medication" | translate}}</div>
+                </div>
+            </div>
+            <br>
+            <div class="scrollable_table">
+                <table bordered cTable class="table">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let dayPeriod of (this.medicationService.medications$ | async)" style="text-align: center">
+                                 <small>{{dayPeriod.dayPeriod.hour}}</small> &nbsp;
+                            </th>
+                        </tr>
+                        <tr>
+                            <th *ngFor="let dayPeriod of (this.medicationService.medications$ | async)" style="text-align: center">
+                                {{dayPeriod.dayPeriod.description | translate}} &nbsp;
+                                <button cButton size="sm" variant="outline" (click)="openAddMedicineModal(dayPeriod.dayPeriod)" ngbTooltip="{{'medication.add-medicine-tooltip' | translate}}">
+                                    <fa-icon [icon]="addIcon"></fa-icon>
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody style="width: 100%;">
+                        <tr>
+                            <td class="w-20" *ngFor="let dayPeriod of (this.medicationService.medications$ | async);">
+                                <app-medicine-card *ngFor="let medication of dayPeriod.medications"
+                                                   (deleteMethod)="this.medicationService.deleteMedication(medication)"
+                                                   [medication]=medication
+                                                   [imageVisibility]="this.medicationService.imageVisibility"
+                                                   [infoActive]="true"
+                                ></app-medicine-card>
+
+                                <app-medicine-card *ngFor="let temporaryMedication of dayPeriod.temporaryMedications"
+                                                   (deleteMethod)="this.medicationService.deleteTemporaryMedication(temporaryMedication)"
+                                                   [medication]=temporaryMedication.medication
+                                                   [temporaryMedication]=temporaryMedication
+                                                   [imageVisibility]="this.medicationService.imageVisibility"
+                                                   [infoActive]="true"
+                                ></app-medicine-card>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </c-card-body>
+    </c-card>
+</c-col>

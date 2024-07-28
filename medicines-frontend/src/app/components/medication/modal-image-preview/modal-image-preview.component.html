@@ -1,0 +1,16 @@
+<c-modal-header>
+    <b>{{ 'medication.image-modal.title' | translate}} </b>
+    <button (click)="this.activeModal.close()" cButtonClose></button>
+</c-modal-header>
+<c-modal-body>
+
+    <img src="data:image/jpg;base64,{{medication.medicine.image}}" alt="Medicine Image" style="width: 100%;">
+
+</c-modal-body>
+<c-modal-footer>
+    <button cButton color="danger" (click)="this.deleteImage(medication.medicine)">{{ 'medication.image-modal.delete-button' | translate }}</button>
+
+    <button (click)="this.activeModal.close()" cButton color="secondary">
+        {{ 'medication.image-modal.close-button' | translate }}
+    </button>
+</c-modal-footer>

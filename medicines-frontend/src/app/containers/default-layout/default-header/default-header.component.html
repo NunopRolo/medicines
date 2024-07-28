@@ -1,0 +1,66 @@
+<ng-container>
+    <c-container [fluid]="true">
+        <button
+            toggle="visible"
+            cHeaderToggler
+            [cSidebarToggle]="sidebarId"
+            class="ps-1"
+        >
+            <svg cIcon
+                 name="cilMenu"
+                 size="lg"
+            ></svg>
+        </button>
+
+        <c-header-nav class="ms-3">
+            <ng-container *ngTemplateOutlet="userDropdown"></ng-container>
+        </c-header-nav>
+    </c-container>
+</ng-container>
+
+<ng-template #userDropdown>
+    <c-header-nav class="d-none d-lg-flex">
+
+        <c-nav-item>
+            <a (click)="changeLanguage('pt')" cNavLink>
+                <svg cIcon name="cif-pt" size="lg"></svg>
+            </a>
+        </c-nav-item>
+
+        <c-nav-item>
+            <a (click)="changeLanguage('en')" cNavLink>
+                <svg cIcon name="cif-us" size="lg"></svg>
+            </a>
+        </c-nav-item>
+    </c-header-nav>
+
+    <c-dropdown alignment="end" variant="nav-item">
+        <button
+            cButton
+            color=""
+            [caret]="false"
+            cDropdownToggle
+            class="py-0"
+        >
+            <c-avatar
+                cTextColor="primary"
+                size="md"
+                src="./assets/img/img.png"
+            >
+            </c-avatar>
+            &nbsp;
+            <span>{{(this.personService.selectedPerson$ | async)?.name}}</span>
+        </button>
+        <ul cDropdownMenu class="pt-0 pr-5 w-auto">
+            <li>
+                <h6 cDropdownHeader class="bg-light fw-semibold">Alterar Perfil</h6>
+            </li>
+            <li *ngFor="let person of (this.personService.persons$ | async)">
+                <a cDropdownItem (click)="changePerson(person)">
+                    {{ person.name }}
+                </a>
+            </li>
+        </ul>
+    </c-dropdown>
+</ng-template>
+
