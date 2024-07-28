@@ -19,7 +19,9 @@ jobs:
                   node-version: '22'
 
             - name: Install dependencies
+              working-directory: ./medicines-frontend
               run: npm install
 
             - name: Build
+              working-directory: ./medicines-frontend
               run: npm run build_prod
