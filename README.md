@@ -1,5 +1,7 @@
 [issue]: https://github.com/NunopRolo/medicines/issues
 
+![Medicines Backend Build](https://github.com/NunopRolo/medicines/actions/workflows/gradle.yml/badge.svg)
+![Medicines Backend Build](https://github.com/NunopRolo/medicines/actions/workflows/frontend.yml/badge.svg)
 # Medicines
 Medicines app is a web application to manage portuguese medicines.
 
