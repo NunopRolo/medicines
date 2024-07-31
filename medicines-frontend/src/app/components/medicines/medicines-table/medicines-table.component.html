@@ -45,7 +45,7 @@
                 <ngb-highlight [result]="medicine.dosage" [term]="filter.value" />
             </td>
             <td>
-                <ngb-highlight [result]="medicine.generic" [term]="filter.value" />
+                <ngb-highlight [result]="translateGenericValue(medicine.generic)" [term]="filter.value" />
             </td>
             <td>
                 <ngb-highlight [result]="medicine.internationalCommonName" [term]="filter.value" />

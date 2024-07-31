@@ -99,4 +99,8 @@ export class MedicinesTableComponent implements OnInit{
             )
         }
     }
+
+    translateGenericValue(generic: string){
+        return this.translateService.instant("medicine."+generic);
+    }
 }

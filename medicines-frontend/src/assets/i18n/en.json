@@ -20,7 +20,9 @@
         "notification": {
             "title": "Medicine",
             "medicine-not-found": "Medicine Not Found"
-        }
+        },
+        "false": "No",
+        "true": "Yes"
     },
     "medication": {
         "add-modal": {
