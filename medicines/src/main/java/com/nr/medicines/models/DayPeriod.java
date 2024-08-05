@@ -3,8 +3,6 @@ package com.nr.medicines.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalTime;
-
 @Entity
 @Table(name = "day_periods")
 @AllArgsConstructor
@@ -25,5 +23,5 @@ public class DayPeriod {
     private Integer order;
 
     @Column(name = "day_period_hour")
-    private LocalTime hour;
+    private String hour;
 }
