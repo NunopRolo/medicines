@@ -1,7 +1,38 @@
 databaseChangeLog:
-    - include:
-        file: classpath:/db/changelog/001-initial-schema.sql
-    - include:
-        file: classpath:/db/changelog/002-initial-data.sql
-    - include:
-        file: classpath:/db/changelog/003-day-periods-data.sql
+    - changeSet:
+        id: 1
+        author: admin
+        context: postgres
+        changes:
+            - sqlFile:
+                path: classpath:/db/changelog/001-day-periods-postgres.sql
+                endDelimiter: ";"
+                splitStatements: true
+
+    - changeSet:
+        id: 2
+        author: admin
+        context: sqlite
+        changes:
+            - sqlFile:
+                path: classpath:/db/changelog/001-day-periods-sqlite.sql
+                endDelimiter: ";"
+                splitStatements: true
+
+    - changeSet:
+        id: 3
+        author: admin
+        changes:
+            - sqlFile:
+                path: classpath:/db/changelog/002-initial-schema.sql
+                endDelimiter: ";"
+                splitStatements: true
+
+    - changeSet:
+        id: 4
+        author: admin
+        changes:
+            - sqlFile:
+                path: classpath:/db/changelog/003-initial-data.sql
+                endDelimiter: ";"
+                splitStatements: true
